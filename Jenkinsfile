@@ -41,10 +41,10 @@ pipeline {
             }
         }
         stage('Deploy') {
-	    steps {
-  		input(message: 'Deploy to Stage', ok: 'Yes, let\'s do it!')
-	    },
+	
             steps {
+		    echo '## WAITING ON APPROVAL FOR DEPLOYMENT ##'
+		    input(message: 'Deploy to Stage', ok: 'Yes, let\'s do it!')
                 echo '## TODO DEPLOYMENT ##'
             }
         }

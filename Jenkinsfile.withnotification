@@ -46,7 +46,7 @@ pipeline {
 		    echo '## WAITING ON APPROVAL FOR DEPLOYMENT ##'
 		    mail to: 'blitznihar@gmail.com',
             subject: "WAITING ON APPROVAL FOR DEPLOYMENT ${currentBuild.fullDisplayName}",
-            body: "WAITING ON APPROVAL FOR DEPLOYMENT ${env.BUILD_URL} \n http://34.221.85.158:8080/blue/organizations/jenkins/testpipeline/detail/testpipeline/${env.BUILD_NUMBER}/pipeline"
+            body: "WAITING ON APPROVAL FOR DEPLOYMENT ${env.BUILD_URL} \n ${env.JENKINS_URL}/blue/organizations/jenkins/${env.JOB_NAME}/detail/${env.JOB_NAME}/${env.BUILD_NUMBER}/pipeline"
 		    input(message: 'Deploy to Stage', ok: 'Yes, let\'s do it!')
 		   
                 echo '## TODO DEPLOYMENT ##'
@@ -89,7 +89,7 @@ pipeline {
             echo 'JENKINS PIPELINE SUCCESSFUL'
                 mail to: 'blitznihar@gmail.com',
                 subject: "JENKINS PIPELINE SUCCESSFUL: ${currentBuild.fullDisplayName}",
-                body: "JENKINS PIPELINE SUCCESSFUL: ${env.BUILD_URL} \n http://34.221.85.158:8080/blue/organizations/jenkins/testpipeline/detail/testpipeline/${env.BUILD_NUMBER}/pipeline"    
+                body: "JENKINS PIPELINE SUCCESSFUL: ${env.BUILD_URL} \n ${env.JENKINS_URL}/blue/organizations/jenkins/${env.JOB_NAME}/detail/${env.JOB_NAME}/${env.BUILD_NUMBER}/pipeline"    
                 
         }
         failure {

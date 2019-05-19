@@ -40,14 +40,6 @@ pipeline {
                 sh '/opt/apache-maven-3.6.0/bin/mvn package -DskipTests'
             }
         }
-        stage('Deploy') {
-	
-            steps {
-		    echo '## WAITING ON APPROVAL FOR DEPLOYMENT ##'
-		    input(message: 'Deploy to Stage', ok: 'Yes, let\'s do it!')
-                echo '## TODO DEPLOYMENT ##'
-            }
-        }
         stage ('Distribute binaries') { 
              steps {
                 script {
